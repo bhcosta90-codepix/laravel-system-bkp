@@ -16,7 +16,7 @@ describe("PixKeyController Feature Test", function () {
         'number' => '0000000',
     ]));
 
-    test("store with email", function(){
+    test("store with email", function () {
         postJson('/api/account/' . $this->account->id . '/pix', [
             'kind' => 'email',
             'key' => "bhcosta90@gmail.com",
@@ -39,7 +39,7 @@ describe("PixKeyController Feature Test", function () {
                 'id',
                 'created_at',
                 'updated_at',
-            ]
+            ],
         ]);
 
         assertDatabaseHas('pix_keys', [
@@ -48,7 +48,7 @@ describe("PixKeyController Feature Test", function () {
         ]);
     });
 
-    test("store with phone", function(){
+    test("store with phone", function () {
         postJson('/api/account/' . $this->account->id . '/pix', [
             'kind' => 'phone',
             'key' => "19988745124",
@@ -60,7 +60,7 @@ describe("PixKeyController Feature Test", function () {
         ]);
     });
 
-    test("store with cpf", function(){
+    test("store with cpf", function () {
         postJson('/api/account/' . $this->account->id . '/pix', [
             'kind' => 'document',
             'key' => "451.781.949-34",
@@ -72,7 +72,7 @@ describe("PixKeyController Feature Test", function () {
         ]);
     });
 
-    test("store with cnpj", function(){
+    test("store with cnpj", function () {
         postJson('/api/account/' . $this->account->id . '/pix', [
             'kind' => 'document',
             'key' => "40.884.250/0001-56",
@@ -84,7 +84,7 @@ describe("PixKeyController Feature Test", function () {
         ]);
     });
 
-    test("store with random", function(){
+    test("store with random", function () {
         $response = postJson('/api/account/' . $this->account->id . '/pix', [
             'kind' => 'id',
             'key' => "40.884.250/0001-56",
@@ -96,7 +96,7 @@ describe("PixKeyController Feature Test", function () {
         ]);
     });
 
-    test("registering a new pix that already", function(){
+    test("registering a new pix that already", function () {
         PixKey::create([
             'account_id' => $this->account->id,
             'kind' => 'email',
