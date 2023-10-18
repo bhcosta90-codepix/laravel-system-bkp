@@ -2,10 +2,14 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "bhcosta90-codepix/package-system": "dev-master",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
@@ -17,12 +21,15 @@
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
+        "pestphp/pest": "^2.24",
+        "pestphp/pest-plugin-laravel": "^2.2",
         "phpunit/phpunit": "^10.1",
         "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "System\\": "src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
@@ -62,5 +69,19 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bhcosta90-codepix/package-system"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bhcosta90/php-domain-package"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bhcosta90/php-entity-package"
+        }
+    ]
 }
