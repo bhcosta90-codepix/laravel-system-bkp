@@ -15,7 +15,7 @@ class PixKeyRepository implements PixKeyRepositoryInterface
 
     public function register(PixKey $pixKey): bool
     {
-        return (bool) \App\Models\PixKey::create([
+        return (bool)\App\Models\PixKey::create([
             'account_id' => $pixKey->account->id(),
             'kind' => $pixKey->kind,
             'key' => $pixKey->key,
@@ -24,12 +24,14 @@ class PixKeyRepository implements PixKeyRepositoryInterface
 
     public function findKeyByKind(string $kind, string $key): ?PixKey
     {
-        if($pix = \App\Models\PixKey::where('key', $key)->where('kind', $kind)->first()){
-            return PixKey::make([
-                'bank' => $pix->account->bank,
-                'kind' => KindPixKey::from($pix->kind),
-                'account' => Account::make($pix->account->toArray())
-            ] + $pix->toArray());
+        if ($pix = \App\Models\PixKey::where('key', $key)->where('kind', $kind)->first()) {
+            return PixKey::make(
+                [
+                    'bank' => $pix->account->bank,
+                    'kind' => KindPixKey::from($pix->kind),
+                    'account' => Account::make($pix->account->toArray()),
+                ] + $pix->toArray()
+            );
         }
         return null;
     }
