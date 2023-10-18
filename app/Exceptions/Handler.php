@@ -3,7 +3,9 @@
 namespace App\Exceptions;
 
 use CodePix\System\Application\Exception\BadRequestException;
+use Costa\Entity\Exceptions\NotificationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -35,6 +37,15 @@ class Handler extends ExceptionHandler
             return response()->json([
                 'message' => $e->getMessage(),
             ], 400);
+        }
+
+        if ($e instanceof NotificationException) {
+            return response()->json([
+                'message' => $e->getMessage(),
+                'errors' => [
+                    $e->getMessage(),
+                ],
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         return parent::render($request, $e);
