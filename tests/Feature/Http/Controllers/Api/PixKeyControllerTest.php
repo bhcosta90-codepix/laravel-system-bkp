@@ -67,6 +67,7 @@ describe("PixKeyController Feature Test", function () {
     test("store with random", function(){
         $response = postJson('/api/account/' . $this->account->id . '/pix', [
             'kind' => 'id',
+            'key' => "40.884.250/0001-56",
         ]);
 
         assertDatabaseHas('pix_keys', [
