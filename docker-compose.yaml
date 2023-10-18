@@ -9,6 +9,6 @@ services:
     volumes:
       - .:/var/www/html
     ports:
-      - "8100:8000"
+      - "9100:8000"
     extra_hosts:
       - 'host.docker.internal:host-gateway'
