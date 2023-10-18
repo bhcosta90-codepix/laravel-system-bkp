@@ -2,7 +2,9 @@
     "pre-push": {
         "enabled": false,
         "actions": [
-            "./vendor/bin/pest --parallel --processes=10"
+            {
+                "action": "./vendor/bin/pest --parallel --processes=10"
+            }
         ]
     }
 }
