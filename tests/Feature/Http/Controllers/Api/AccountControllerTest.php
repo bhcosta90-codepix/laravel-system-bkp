@@ -14,7 +14,18 @@ describe("AccountController Feature Test", function () {
             'name' => 'testing',
             'agency' => str()->uuid(),
             'number' => '0000000',
-        ])->assertStatus(201);
+        ])->assertStatus(201)->assertJsonStructure([
+            'data' => [
+                'pix_keys',
+                'name',
+                'bank',
+                'agency',
+                'number',
+                'id',
+                'created_at',
+                'updated_at',
+            ]
+        ]);
 
         assertDatabaseHas('accounts', [
             'bank' => $response->json('data.bank'),

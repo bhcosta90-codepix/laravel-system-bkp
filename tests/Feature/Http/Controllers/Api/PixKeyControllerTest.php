@@ -20,6 +20,26 @@ describe("PixKeyController Feature Test", function () {
         postJson('/api/account/' . $this->account->id . '/pix', [
             'kind' => 'email',
             'key' => "bhcosta90@gmail.com",
+        ])->assertJsonStructure([
+            'data' => [
+                'bank',
+                'kind',
+                'account' => [
+                    'pix_keys',
+                    'name',
+                    'bank',
+                    'agency',
+                    'number',
+                    'id',
+                    'created_at',
+                    'updated_at',
+                ],
+                'key',
+                'status',
+                'id',
+                'created_at',
+                'updated_at',
+            ]
         ]);
 
         assertDatabaseHas('pix_keys', [
