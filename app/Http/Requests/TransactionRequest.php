@@ -27,7 +27,7 @@ class TransactionRequest extends FormRequest
     {
         $rules = [
             'account' => 'required',
-            'value' => 'required|min:0',
+            'value' => 'required|numeric|min:0',
             'description' => 'required|min:3',
             'kind' => ['required', new Enum(KindPixKey::class)],
             'key' => ['required'],
@@ -38,10 +38,8 @@ class TransactionRequest extends FormRequest
             'phone' => $rules['key'] + ['required', 'size:11'],
             'document' => $rules['key'] + ['required', 'cpf_ou_cnpj'],
             'id' => $rules['key'] + ['required', 'uuid'],
-            default => throw new Exception(),
+            default => true,
         };
-
-        dd($rules);
 
         return $rules;
     }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\PixKeyController;
+use App\Http\Controllers\Api\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('account')->group(function () {
     Route::post('/', [AccountController::class, 'store']);
     Route::post('/{account}/pix', [PixKeyController::class, 'store']);
+});
+
+Route::prefix('transaction')->group(function () {
+    Route::post('/', [TransactionController::class, 'store']);
 });

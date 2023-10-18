@@ -13,6 +13,7 @@ class TransactionController extends Controller
 {
     public function store(TransactionRequest $transactionRequest, TransactionUseCase $transactionUseCase)
     {
+
         $response = $transactionUseCase->register(
             account: $transactionRequest->account,
             value: $transactionRequest->value,
