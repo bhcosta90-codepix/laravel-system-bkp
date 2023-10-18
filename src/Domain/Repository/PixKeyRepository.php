@@ -7,8 +7,10 @@ namespace System\Domain\Repository;
 use CodePix\System\Domain\Entities\Account;
 use CodePix\System\Domain\Entities\PixKey;
 use CodePix\System\Domain\Repository\PixKeyRepositoryInterface;
+use Costa\Entity\ValueObject\Uuid;
 
-class PixKeyRepository implements PixKeyRepositoryInterface {
+class PixKeyRepository implements PixKeyRepositoryInterface
+{
 
     public function register(PixKey $pixKey): bool
     {
@@ -28,5 +30,17 @@ class PixKeyRepository implements PixKeyRepositoryInterface {
     public function findAccount(string $id): ?Account
     {
         // TODO: Implement findAccount() method.
+    }
+
+    public function findAccountByBankAgencyNumber(string $bank, string $agency, string $number): ?Uuid
+    {
+        $response = \App\Models\Account::where('bank', $bank)
+            ->where('agency', $agency)
+            ->where('number', $number)
+            ->first();
+
+        return $response
+            ? new Uuid($response->id)
+            : null;
     }
 }
