@@ -7,7 +7,6 @@ use App\Http\Requests\AccountRequest;
 use App\Http\Resources\AccountResource;
 use CodePix\System\Application\UseCase\AccountUseCase;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class AccountController extends Controller
