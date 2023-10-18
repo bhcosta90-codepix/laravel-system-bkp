@@ -1,0 +1,8 @@
+{
+    "pre-push": {
+        "enabled": false,
+        "actions": [
+            "./vendor/bin/pest --parallel --processes=10"
+        ]
+    }
+}
