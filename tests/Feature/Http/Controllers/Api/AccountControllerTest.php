@@ -11,6 +11,6 @@ describe("AccountController Feature Test", function(){
             'name' => 'testing',
             'agency' => str()->uuid(),
             'number' => '0000000',
-        ])->dump();
+        ])->assertStatus(201);
     });
 });

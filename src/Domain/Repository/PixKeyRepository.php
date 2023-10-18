@@ -20,9 +20,9 @@ class PixKeyRepository implements PixKeyRepositoryInterface {
         throw new Exception();
     }
 
-    public function addAccount(Account $account)
+    public function addAccount(Account $account): void
     {
-        throw new Exception();
+        \App\Models\Account::create($account->toArray());
     }
 
     public function findAccount(string $id): ?Account
