@@ -14,9 +14,10 @@ class PixKeyController extends Controller
     public function store(string $account, PixKeyRequest $pixKeyRequest, PixUseCase $accountUseCase)
     {
         $response = $accountUseCase->register(
+            bank: $pixKeyRequest->bank,
+            account: $account,
             kind: $pixKeyRequest->kind,
             key: $pixKeyRequest->key ?: ($pixKeyRequest->kind == KindPixKey::ID->value ? str()->uuid() : null),
-            account: $account,
         );
 
         return (new PixKeyResource($response))

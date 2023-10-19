@@ -24,6 +24,7 @@ class PixKeyRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
+            'bank' => ['required', 'uuid'],
             'kind' => ['required', new Enum(KindPixKey::class)],
         ];
 

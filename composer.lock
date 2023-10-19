@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bhcosta90-codepix/package-system.git",
-                "reference": "033aa075de22838585aa6ec5a0c8501394c816e2"
+                "reference": "f5bd8df3e96f104d76760d414a25a3c0ef3b7a5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bhcosta90-codepix/package-system/zipball/033aa075de22838585aa6ec5a0c8501394c816e2",
-                "reference": "033aa075de22838585aa6ec5a0c8501394c816e2",
+                "url": "https://api.github.com/repos/bhcosta90-codepix/package-system/zipball/f5bd8df3e96f104d76760d414a25a3c0ef3b7a5c",
+                "reference": "f5bd8df3e96f104d76760d414a25a3c0ef3b7a5c",
                 "shasum": ""
             },
             "require": {
@@ -57,20 +57,20 @@
                 "source": "https://github.com/bhcosta90-codepix/package-system/tree/master",
                 "issues": "https://github.com/bhcosta90-codepix/package-system/issues"
             },
-            "time": "2023-10-19T14:55:55+00:00"
+            "time": "2023-10-19T18:30:17+00:00"
         },
         {
             "name": "bhcosta90/clean-architecture",
-            "version": "1.1.13",
+            "version": "1.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bhcosta90/php-domain-package.git",
-                "reference": "2cc4901870cd804457b0d2e87a78e09a0813bb4b"
+                "reference": "31f76412580da30447294d2317e986bd33a000b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bhcosta90/php-domain-package/zipball/2cc4901870cd804457b0d2e87a78e09a0813bb4b",
-                "reference": "2cc4901870cd804457b0d2e87a78e09a0813bb4b",
+                "url": "https://api.github.com/repos/bhcosta90/php-domain-package/zipball/31f76412580da30447294d2317e986bd33a000b5",
+                "reference": "31f76412580da30447294d2317e986bd33a000b5",
                 "shasum": ""
             },
             "require": {
@@ -111,23 +111,23 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/bhcosta90/php-domain-package/tree/1.1.13",
+                "source": "https://github.com/bhcosta90/php-domain-package/tree/1.0.14",
                 "issues": "https://github.com/bhcosta90/php-domain-package/issues"
             },
-            "time": "2023-10-17T22:57:31+00:00"
+            "time": "2023-10-18T20:17:16+00:00"
         },
         {
             "name": "bhcosta90/entity",
-            "version": "1.1.13",
+            "version": "1.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bhcosta90/php-entity-package.git",
-                "reference": "0d1daca9be8552ab9d7298f2675a6787313150a0"
+                "reference": "21eea02fdd56c093175326eceb9452cb936e596e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bhcosta90/php-entity-package/zipball/0d1daca9be8552ab9d7298f2675a6787313150a0",
-                "reference": "0d1daca9be8552ab9d7298f2675a6787313150a0",
+                "url": "https://api.github.com/repos/bhcosta90/php-entity-package/zipball/21eea02fdd56c093175326eceb9452cb936e596e",
+                "reference": "21eea02fdd56c093175326eceb9452cb936e596e",
                 "shasum": ""
             },
             "require": {
@@ -167,10 +167,10 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/bhcosta90/php-entity-package/tree/1.1.13",
+                "source": "https://github.com/bhcosta90/php-entity-package/tree/1.0.14",
                 "issues": "https://github.com/bhcosta90/php-entity-package/issues"
             },
-            "time": "2023-10-17T22:54:48+00:00"
+            "time": "2023-10-18T20:15:48+00:00"
         },
         {
             "name": "brick/math",
@@ -9883,5 +9883,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

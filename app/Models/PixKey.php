@@ -16,9 +16,4 @@ class PixKey extends Model
     protected $casts = [
         'status' => 'boolean'
     ];
-
-    public function account(): BelongsTo
-    {
-        return $this->belongsTo(Account::class);
-    }
 }

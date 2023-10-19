@@ -22,6 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('account')->group(function () {
-    Route::post('/', [AccountController::class, 'store']);
     Route::post('/{account}/pix', [PixKeyController::class, 'store']);
 });
