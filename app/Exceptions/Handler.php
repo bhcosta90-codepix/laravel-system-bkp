@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use CodePix\System\Application\Exception\BadRequestException;
+use CodePix\System\Application\Exception\EntityException;
 use Costa\Entity\Exceptions\NotificationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Response;
@@ -39,7 +40,7 @@ class Handler extends ExceptionHandler
             ], 400);
         }
 
-        if ($e instanceof NotificationException) {
+        if ($e instanceof NotificationException || $e instanceof EntityException) {
             return response()->json([
                 'message' => $e->getMessage(),
                 'errors' => [
