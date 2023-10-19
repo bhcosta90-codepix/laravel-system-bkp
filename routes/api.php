@@ -25,7 +25,3 @@ Route::prefix('account')->group(function () {
     Route::post('/', [AccountController::class, 'store']);
     Route::post('/{account}/pix', [PixKeyController::class, 'store']);
 });
-
-Route::prefix('transaction')->group(function () {
-    Route::post('/', [TransactionController::class, 'store']);
-});
