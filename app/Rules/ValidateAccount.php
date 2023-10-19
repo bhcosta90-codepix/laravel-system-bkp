@@ -27,7 +27,7 @@ class ValidateAccount implements ValidationRule
             ->where('pix_keys.key', $value)
             ->first()?->account_id;
 
-        if($pix && $pix == $account){
+        if ($pix && $pix == $account) {
             $fail('The source and destination account cannot be the same.');
         }
     }
