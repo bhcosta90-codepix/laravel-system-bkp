@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Transaction;
 
 use App\Services\RabbitMQService;
 use Illuminate\Console\Command;
 
-class MQConsumerCommand extends Command
+class CreateCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'mq:consume';
+    protected $signature = 'transaction:create';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Consume the mq queue';
+    protected $description = 'Creating a new transaction';
 
     /**
      * Execute the console command.
