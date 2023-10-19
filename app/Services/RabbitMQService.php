@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Bschmitt\Amqp\Facades\Amqp;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class RabbitMQService
@@ -18,11 +19,11 @@ class RabbitMQService
     public function consume(string $queue, $clojure, $custom = [])
     {
         do {
-            Amqp::consume($queue, function ($message, $resolver) use ($clojure) {
+            Amqp::consume($queue, function ($message, $resolver) use ($queue, $clojure) {
                 try {
                     $clojure($message->body);
-                } catch (Throwable) {
-                    $message->body = "error: " . $message->body;
+                } catch (Throwable $e) {
+                    Log::error("Error consumer {$queue}: " . $e->getMessage() . json_encode($e->getTrace()));
                 }
                 $resolver->stopWhenProcessed();
             }, $custom);
