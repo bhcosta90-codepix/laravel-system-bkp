@@ -16,7 +16,8 @@ class PixKeyRepository implements PixKeyRepositoryInterface
     public function register(PixKey $pixKey): bool
     {
         return (bool)\App\Models\PixKey::create([
-            'account_id' => $pixKey->account->id(),
+            'bank' => $pixKey->bank,
+            'account_id' => $pixKey->account,
             'kind' => $pixKey->kind,
             'key' => $pixKey->key,
         ]);
@@ -27,38 +28,12 @@ class PixKeyRepository implements PixKeyRepositoryInterface
         if ($pix = \App\Models\PixKey::where('key', $key)->where('kind', $kind)->first()) {
             return PixKey::make(
                 [
-                    'bank' => $pix->account->bank,
+                    'bank' => $pix->bank,
                     'kind' => KindPixKey::from($pix->kind),
-                    'account' => Account::make($pix->account->toArray()),
+                    'account' => $pix->account_id,
                 ] + $pix->toArray()
             );
         }
         return null;
-    }
-
-    public function addAccount(Account $account): void
-    {
-        \App\Models\Account::create($account->toArray());
-    }
-
-    public function findAccount(string $id): ?Account
-    {
-        if ($account = \App\Models\Account::find($id)) {
-            return Account::make($account->toArray());
-        }
-
-        return null;
-    }
-
-    public function findAccountByBankAgencyNumber(string $bank, string $agency, string $number): ?Uuid
-    {
-        $response = \App\Models\Account::where('bank', $bank)
-            ->where('agency', $agency)
-            ->where('number', $number)
-            ->first();
-
-        return $response
-            ? new Uuid($response->id)
-            : null;
     }
 }
