@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\ValidateAccount;
+use App\Rules\ValidatePixKey;
 use CodePix\System\Domain\Entities\Enum\PixKey\KindPixKey;
 use Exception;
 use Illuminate\Foundation\Http\FormRequest;
@@ -31,7 +31,7 @@ class TransactionRequest extends FormRequest
             'value' => 'required|numeric|min:0',
             'description' => 'required|min:3',
             'kind' => ['required', new Enum(KindPixKey::class)],
-            'key' => ['required', new ValidateAccount($this->get('account'), $this->get('kind'))],
+            'key' => ['required', new ValidatePixKey($this->get('account'), $this->get('kind'))],
         ];
 
         match ($this->get('kind')) {

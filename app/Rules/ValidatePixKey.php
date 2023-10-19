@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\DB;
 
-class ValidateAccount implements ValidationRule
+class ValidatePixKey implements ValidationRule
 {
     public function __construct(protected string $account, protected $kind)
     {
