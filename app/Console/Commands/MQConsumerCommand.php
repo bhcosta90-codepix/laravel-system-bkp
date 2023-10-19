@@ -27,6 +27,6 @@ class MQConsumerCommand extends Command
     public function handle()
     {
         $mqService = new RabbitMQService();
-        $mqService->consume();
+        $mqService->consume("testing", fn($message) => $message == "error" ? throw new \Exception('123') : dump($message));
     }
 }
