@@ -6,16 +6,9 @@ EXPOSE 8000
 
 CMD ["php", "artisan", "serve", "--host=0.0.0.0"]
 
-FROM php:8.2-fpm-alpine as build
-WORKDIR /var/www/html
-COPY . .
-RUN curl -sS https://getcomposer.org/installer | php -- \
-  --install-dir=/usr/bin --filename=composer
-
-RUN composer install --no-dev
-
 FROM php:8.2-fpm-alpine as prod
-COPY --chown=node:node --from=build /var/www/html/vendor /var/www/html/vendor
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY . .
+RUN composer install --optimize-autoloader --no-dev
 
-CMD ["tail", "-f", "/dev/null"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0"]

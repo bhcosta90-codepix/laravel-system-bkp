@@ -35,7 +35,7 @@ beforeEach(function () {
 });
 
 describe("TransactionController Feature Test", function () {
-    test("store", function(){
+    test("store", function () {
         postJson('/api/transaction', [
             'account' => $this->account01->id,
             'value' => 50,
@@ -54,8 +54,8 @@ describe("TransactionController Feature Test", function () {
         ]);
     });
 
-    describe("exception", function(){
-        test("same account", function(){
+    describe("exception", function () {
+        test("same account", function () {
             postJson('/api/transaction', [
                 'account' => $this->account01->id,
                 'value' => 50,
@@ -63,7 +63,7 @@ describe("TransactionController Feature Test", function () {
                 'key' => "test@test.com",
                 'description' => 'testing',
             ])->assertStatus(422)->assertJson([
-                'message' => 'account: the source and destination account cannot be the same'
+                'message' => 'The source and destination account cannot be the same.',
             ]);
         });
     });
