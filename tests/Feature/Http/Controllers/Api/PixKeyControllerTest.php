@@ -101,6 +101,6 @@ describe("PixKeyController Feature Test", function () {
             'bank' => $bank,
             'kind' => 'email',
             'key' => "bhcosta90@gmail.com",
-        ])->assertStatus(400);
+        ])->assertStatus(422);
     });
 });
