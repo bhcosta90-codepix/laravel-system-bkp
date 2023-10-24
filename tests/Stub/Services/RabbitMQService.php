@@ -11,7 +11,7 @@ class RabbitMQService implements AMQPInterface, RabbitMQInterface
 {
     public function __construct(protected mixed $data)
     {
-
+        $this->data = json_encode($data);
     }
 
     public function publish($name, array $value = []): void
