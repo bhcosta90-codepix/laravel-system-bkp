@@ -20,6 +20,11 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton(AMQPInterface::class, RabbitMQInterface::class);
         $this->app->singleton(RabbitMQInterface::class, RabbitMQService::class);
+
+        if ($this->app->environment('local')) {
+            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 
     /**
