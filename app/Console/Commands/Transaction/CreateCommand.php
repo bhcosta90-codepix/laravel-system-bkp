@@ -33,8 +33,8 @@ class CreateCommand extends Command
                 bank: $data['bank'],
                 account: $data['account_from']['id'],
                 value: $data['value'],
-                kind: $data['pix_key_to']['kind'],
-                key: $data['pix_key_to']['key'],
+                kind: $data['kind'],
+                key: $data['key'],
                 description: $data['description'],
             );
         });
