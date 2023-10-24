@@ -12,6 +12,7 @@ class TransactionRepository implements TransactionRepositoryInterface
     public function register(Transaction $transaction): bool
     {
         return (bool) \App\Models\Transaction::create([
+            'debit_id' => $transaction->debit,
             'bank' => $transaction->bank,
             'account_from_id' => $transaction->accountFrom,
             'account_to_id' => $transaction->pixKeyTo->account,

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id');
             $table->uuid('bank');
+            $table->uuid('debit_id');
             $table->uuid('account_from_id');
             $table->uuid('account_to_id');
             $table->unsignedDouble('value');

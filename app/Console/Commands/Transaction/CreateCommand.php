@@ -30,6 +30,7 @@ class CreateCommand extends Command
         $rabbitMQService->consume("transaction_creating", "transaction.creating", function($message) use($transactionUseCase) {
             $data = json_decode($message, true);
             return $transactionUseCase->register(
+                debit: $data['id'],
                 bank: $data['bank'],
                 account: $data['account_from']['id'],
                 value: $data['value'],
