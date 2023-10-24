@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->uuid('bank');
-            $table->uuid('debit_id');
+            $table->uuid('id')->primary();
+            $table->uuid('bank')->index();
+            $table->uuid('debit_id')->unique();
             $table->uuid('account_from_id');
             $table->uuid('account_to_id');
             $table->unsignedDouble('value');
