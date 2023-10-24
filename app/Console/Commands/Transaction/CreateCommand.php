@@ -2,7 +2,8 @@
 
 namespace App\Console\Commands\Transaction;
 
-use App\Services\RabbitMQService;
+use App\Services\Interfaces\RabbitMQInterface;
+use CodePix\System\Application\UseCase\TransactionUseCase;
 use Illuminate\Console\Command;
 
 class CreateCommand extends Command
@@ -24,9 +25,18 @@ class CreateCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(RabbitMQInterface $rabbitMQService, TransactionUseCase $transactionUseCase): void
     {
-        $mqService = new RabbitMQService();
-        $mqService->consume("transaction_creating", "transaction.creating", fn($message) => dump($message));
+        $rabbitMQService->consume("transaction_creating", "transaction.creating", function($message) use($transactionUseCase) {
+            $data = json_decode($message, true);
+            $transactionUseCase->register(
+                bank: $data['bank'],
+                account: $data['account_from']['id'],
+                value: $data['value'],
+                kind: $data['pix_key_to']['kind'],
+                key: $data['pix_key_to']['key'],
+                description: $data['description'],
+            );
+        });
     }
 }

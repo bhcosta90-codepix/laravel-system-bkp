@@ -4,23 +4,29 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Services\Interfaces\AMQPInterface;
+use App\Services\Interfaces\RabbitMQInterface;
 use Bschmitt\Amqp\Facades\Amqp;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
-class RabbitMQService
+class RabbitMQService implements AMQPInterface, RabbitMQInterface
 {
-    public function publish($name, array $value = [])
+    public function publish($name, array $value = []): void
     {
         $appName = config('app.name');
         Amqp::publish($appName . "." . $name, json_encode($value));
     }
 
-    public function consume(string $queue, string|array $routing, $clojure, $custom = [])
+    public function consume(string $queue, string|array $routing, $clojure, $custom = []): void
     {
         if (is_string($routing)) {
             $routing = [$routing];
         }
+
+        $routing = [
+            'routing' => $routing,
+        ];
 
         do {
             Amqp::consume($queue, function ($message, $resolver) use ($queue, $clojure) {

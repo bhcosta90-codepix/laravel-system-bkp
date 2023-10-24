@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id');
-            $table->foreignUuid('account_from_id')->on('accounts');
-            $table->foreignUuid('account_to_id')->on('accounts');
+            $table->uuid('bank');
+            $table->uuid('account_from_id');
+            $table->uuid('account_to_id');
             $table->unsignedDouble('value');
             $table->string('kind');
             $table->string('key');

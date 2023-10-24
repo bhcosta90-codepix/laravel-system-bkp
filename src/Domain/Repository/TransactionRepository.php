@@ -12,8 +12,9 @@ class TransactionRepository implements TransactionRepositoryInterface
     public function register(Transaction $transaction): bool
     {
         return (bool) \App\Models\Transaction::create([
-            'account_from_id' => $transaction->accountFrom->id(),
-            'account_to_id' => $transaction->pixKeyTo->account->id(),
+            'bank' => $transaction->bank,
+            'account_from_id' => $transaction->accountFrom,
+            'account_to_id' => $transaction->pixKeyTo->account,
             'kind' => $transaction->pixKeyTo->kind,
             'key' => $transaction->pixKeyTo->key,
             'description' => $transaction->description,
