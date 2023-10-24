@@ -27,6 +27,6 @@ class CreateCommand extends Command
     public function handle()
     {
         $mqService = new RabbitMQService();
-        $mqService->consume("testing", fn($message) => $message == "error" ? throw new \Exception('123') : dump($message));
+        $mqService->consume("transaction_creating", "transaction.creating", fn($message) => dump($message));
     }
 }

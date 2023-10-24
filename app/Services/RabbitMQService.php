@@ -16,8 +16,12 @@ class RabbitMQService
         Amqp::publish($appName . "." . $name, json_encode($value));
     }
 
-    public function consume(string $queue, $clojure, $custom = [])
+    public function consume(string $queue, string|array $routing, $clojure, $custom = [])
     {
+        if (is_string($routing)) {
+            $routing = [$routing];
+        }
+
         do {
             Amqp::consume($queue, function ($message, $resolver) use ($queue, $clojure) {
                 try {
@@ -26,7 +30,7 @@ class RabbitMQService
                     Log::error("Error consumer {$queue}: " . $e->getMessage() . json_encode($e->getTrace()));
                 }
                 $resolver->stopWhenProcessed();
-            }, $custom);
+            }, $custom + $routing);
             sleep(10);
         } while (true);
     }
