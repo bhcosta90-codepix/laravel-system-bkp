@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bhcosta90-codepix/package-system.git",
-                "reference": "3e3ca2994645128c72855491ecc5dfdad52894f7"
+                "reference": "2ab9be873a7b7026b2460ba26738ed529a818f59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bhcosta90-codepix/package-system/zipball/3e3ca2994645128c72855491ecc5dfdad52894f7",
-                "reference": "3e3ca2994645128c72855491ecc5dfdad52894f7",
+                "url": "https://api.github.com/repos/bhcosta90-codepix/package-system/zipball/2ab9be873a7b7026b2460ba26738ed529a818f59",
+                "reference": "2ab9be873a7b7026b2460ba26738ed529a818f59",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,7 @@
                 "source": "https://github.com/bhcosta90-codepix/package-system/tree/master",
                 "issues": "https://github.com/bhcosta90-codepix/package-system/issues"
             },
-            "time": "2023-10-24T18:53:35+00:00"
+            "time": "2023-10-24T20:15:59+00:00"
         },
         {
             "name": "bhcosta90/clean-architecture",

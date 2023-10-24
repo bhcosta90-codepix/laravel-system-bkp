@@ -29,7 +29,7 @@ class ConfirmationCommand extends Command
     {
         $rabbitMQService->consume("transaction_confirmation", "transaction.confirmation", function($message) use($transactionUseCase) {
             $data = json_decode($message, true);
-            dump($data);
+            $transactionUseCase->confirm($data['id']);
         });
     }
 }
