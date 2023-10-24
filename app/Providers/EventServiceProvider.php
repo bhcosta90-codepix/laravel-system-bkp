@@ -3,10 +3,10 @@
 namespace App\Providers;
 
 use App\Listeners\Transaction\CreateListener;
+use CodePix\System\Domain\Events\Transaction\CreateEvent;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Tests\Events\Transaction\CreateEvent;
 
 class EventServiceProvider extends ServiceProvider
 {

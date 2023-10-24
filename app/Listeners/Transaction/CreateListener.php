@@ -3,9 +3,9 @@
 namespace App\Listeners\Transaction;
 
 use App\Services\Interfaces\AMQPInterface;
+use CodePix\System\Domain\Events\Transaction\CreateEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use Tests\Events\Transaction\CreateEvent;
 
 class CreateListener
 {
@@ -22,6 +22,7 @@ class CreateListener
      */
     public function handle(CreateEvent $event): void
     {
-        $this->AMQP->publish('transaction.sync', $event->payload());
+        $payload = $event->payload();
+        $this->AMQP->publish($payload['bank'] . '.transaction.creating', $payload);
     }
 }
