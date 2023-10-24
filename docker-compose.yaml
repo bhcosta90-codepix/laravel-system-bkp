@@ -13,12 +13,13 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
-  prod:
+  transaction_created:
     build:
       context: .
       dockerfile: Dockerfile
-      target: prod
-    ports:
-      - "7001:8000"
+      target: dev
+    volumes:
+      - .:/var/www/html
     extra_hosts:
       - 'host.docker.internal:host-gateway'
+    command: php artisan transaction:create

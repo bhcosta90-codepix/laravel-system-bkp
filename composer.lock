@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bhcosta90-codepix/package-system.git",
-                "reference": "5979b6887ab82f9cba88399f8843c3817613326a"
+                "reference": "a45dcf9d5e939e032860b8ccb6b3bf6f52f2dea5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bhcosta90-codepix/package-system/zipball/5979b6887ab82f9cba88399f8843c3817613326a",
-                "reference": "5979b6887ab82f9cba88399f8843c3817613326a",
+                "url": "https://api.github.com/repos/bhcosta90-codepix/package-system/zipball/a45dcf9d5e939e032860b8ccb6b3bf6f52f2dea5",
+                "reference": "a45dcf9d5e939e032860b8ccb6b3bf6f52f2dea5",
                 "shasum": ""
             },
             "require": {
@@ -57,20 +57,20 @@
                 "source": "https://github.com/bhcosta90-codepix/package-system/tree/master",
                 "issues": "https://github.com/bhcosta90-codepix/package-system/issues"
             },
-            "time": "2023-10-24T13:56:05+00:00"
+            "time": "2023-10-24T15:47:53+00:00"
         },
         {
             "name": "bhcosta90/clean-architecture",
-            "version": "1.0.20",
+            "version": "1.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bhcosta90/php-domain-package.git",
-                "reference": "14866974c6fbf457d74af0a39bd39b88752aa745"
+                "reference": "b997cb24863a1e9ed04b513005ecac88cb1b8eb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bhcosta90/php-domain-package/zipball/14866974c6fbf457d74af0a39bd39b88752aa745",
-                "reference": "14866974c6fbf457d74af0a39bd39b88752aa745",
+                "url": "https://api.github.com/repos/bhcosta90/php-domain-package/zipball/b997cb24863a1e9ed04b513005ecac88cb1b8eb9",
+                "reference": "b997cb24863a1e9ed04b513005ecac88cb1b8eb9",
                 "shasum": ""
             },
             "require": {
@@ -111,23 +111,23 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/bhcosta90/php-domain-package/tree/1.0.20",
+                "source": "https://github.com/bhcosta90/php-domain-package/tree/1.0.21",
                 "issues": "https://github.com/bhcosta90/php-domain-package/issues"
             },
-            "time": "2023-10-24T12:27:59+00:00"
+            "time": "2023-10-24T15:24:53+00:00"
         },
         {
             "name": "bhcosta90/entity",
-            "version": "1.0.20",
+            "version": "1.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bhcosta90/php-entity-package.git",
-                "reference": "8a385eb79e9e7f4015fdfa18755fc263caf05081"
+                "reference": "b62d7b5ba2d857b18fe186abcfa8953502b1f37a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bhcosta90/php-entity-package/zipball/8a385eb79e9e7f4015fdfa18755fc263caf05081",
-                "reference": "8a385eb79e9e7f4015fdfa18755fc263caf05081",
+                "url": "https://api.github.com/repos/bhcosta90/php-entity-package/zipball/b62d7b5ba2d857b18fe186abcfa8953502b1f37a",
+                "reference": "b62d7b5ba2d857b18fe186abcfa8953502b1f37a",
                 "shasum": ""
             },
             "require": {
@@ -167,10 +167,10 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/bhcosta90/php-entity-package/tree/1.0.20",
+                "source": "https://github.com/bhcosta90/php-entity-package/tree/1.0.21",
                 "issues": "https://github.com/bhcosta90/php-entity-package/issues"
             },
-            "time": "2023-10-24T12:26:38+00:00"
+            "time": "2023-10-24T15:19:06+00:00"
         },
         {
             "name": "brick/math",
@@ -1412,23 +1412,23 @@
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.1.11",
+            "version": "v0.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "cce65a90e64712909ea1adc033e1d88de8455ffd"
+                "reference": "b35f249028c22016e45e48626e19e5d42fd827ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/cce65a90e64712909ea1adc033e1d88de8455ffd",
-                "reference": "cce65a90e64712909ea1adc033e1d88de8455ffd",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/b35f249028c22016e45e48626e19e5d42fd827ff",
+                "reference": "b35f249028c22016e45e48626e19e5d42fd827ff",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "illuminate/collections": "^10.0|^11.0",
                 "php": "^8.1",
-                "symfony/console": "^6.2"
+                "symfony/console": "^6.2|^7.0"
             },
             "conflict": {
                 "illuminate/console": ">=10.17.0 <10.25.0",
@@ -1463,9 +1463,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.1.11"
+                "source": "https://github.com/laravel/prompts/tree/v0.1.12"
             },
-            "time": "2023-10-03T01:07:35+00:00"
+            "time": "2023-10-18T14:18:57+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -6809,16 +6809,16 @@
         },
         {
             "name": "laravel/pint",
-            "version": "v1.13.3",
+            "version": "v1.13.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "93b2d0d49719bc6e444ba21cd4dbbccec935413d"
+                "reference": "428c1eae1be4d2994c88234ffe3fea6800532e0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/93b2d0d49719bc6e444ba21cd4dbbccec935413d",
-                "reference": "93b2d0d49719bc6e444ba21cd4dbbccec935413d",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/428c1eae1be4d2994c88234ffe3fea6800532e0d",
+                "reference": "428c1eae1be4d2994c88234ffe3fea6800532e0d",
                 "shasum": ""
             },
             "require": {
@@ -6830,12 +6830,12 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.34.1",
-                "illuminate/view": "^10.23.1",
+                "illuminate/view": "^10.26.2",
                 "laravel-zero/framework": "^10.1.2",
                 "mockery/mockery": "^1.6.6",
                 "nunomaduro/larastan": "^2.6.4",
                 "nunomaduro/termwind": "^1.15.1",
-                "pestphp/pest": "^2.18.2"
+                "pestphp/pest": "^2.20.0"
             },
             "bin": [
                 "builds/pint"
@@ -6871,31 +6871,31 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2023-10-10T15:39:09+00:00"
+            "time": "2023-10-24T15:44:13+00:00"
         },
         {
             "name": "laravel/sail",
-            "version": "v1.25.0",
+            "version": "v1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "e81a7bd7ac1a745ccb25572830fecf74a89bb48a"
+                "reference": "c60fe037004e272efd0d81f416ed2bfc623d70b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/e81a7bd7ac1a745ccb25572830fecf74a89bb48a",
-                "reference": "e81a7bd7ac1a745ccb25572830fecf74a89bb48a",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/c60fe037004e272efd0d81f416ed2bfc623d70b4",
+                "reference": "c60fe037004e272efd0d81f416ed2bfc623d70b4",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "^8.0|^9.0|^10.0",
-                "illuminate/contracts": "^8.0|^9.0|^10.0",
-                "illuminate/support": "^8.0|^9.0|^10.0",
+                "illuminate/console": "^9.0|^10.0|^11.0",
+                "illuminate/contracts": "^9.0|^10.0|^11.0",
+                "illuminate/support": "^9.0|^10.0|^11.0",
                 "php": "^8.0",
-                "symfony/yaml": "^6.0"
+                "symfony/yaml": "^6.0|^7.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^6.0|^7.0|^8.0",
+                "orchestra/testbench": "^7.0|^8.0|^9.0",
                 "phpstan/phpstan": "^1.10"
             },
             "bin": [
@@ -6936,7 +6936,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2023-09-11T17:37:09+00:00"
+            "time": "2023-10-18T13:57:15+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -9885,5 +9885,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
