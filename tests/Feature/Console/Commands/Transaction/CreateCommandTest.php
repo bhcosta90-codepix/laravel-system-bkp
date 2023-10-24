@@ -10,7 +10,6 @@ use Tests\Stub\Services\RabbitMQService;
 use function Pest\Laravel\assertDatabaseHas;
 
 beforeEach(function () {
-    $this->data = json_decode(file_get_contents(__DIR__ . '/data.json'), true)['transaction:create'];
     $this->command = new CreateCommand();
 
     PixKey::factory()->create([
@@ -23,7 +22,7 @@ beforeEach(function () {
 
 describe("CreateCommand Feature Test", function () {
     test("handle", function () {
-        $this->command->handle(new RabbitMQService($this->data), app(TransactionUseCase::class));
+        $this->command->handle(new RabbitMQService("transaction:create"), app(TransactionUseCase::class));
 
         assertDatabaseHas('transactions', [
             'bank' => 'ea9b5815-1b04-4d34-87e1-16da2787a3bb',

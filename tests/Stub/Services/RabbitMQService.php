@@ -9,9 +9,13 @@ use App\Services\Interfaces\RabbitMQInterface;
 
 class RabbitMQService implements AMQPInterface, RabbitMQInterface
 {
-    public function __construct(protected mixed $data)
+    private string $data;
+
+
+    public function __construct(protected string $key)
     {
-        $this->data = json_encode($data);
+        $data = json_decode(file_get_contents(__DIR__ . '/data.json'), true);
+        $this->data = json_encode($data[$key]);
     }
 
     public function publish($name, array $value = []): void
