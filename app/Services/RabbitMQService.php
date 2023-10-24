@@ -14,8 +14,7 @@ class RabbitMQService implements AMQPInterface, RabbitMQInterface
 {
     public function publish($name, array $value = []): void
     {
-        $appName = config('app.name');
-        Amqp::publish($appName . "." . $name, json_encode($value));
+        Amqp::publish($name, json_encode($value));
     }
 
     public function consume(string $queue, string|array $routing, $clojure, $custom = []): void
