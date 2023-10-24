@@ -13,7 +13,7 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
-  transaction_created:
+  transaction_create:
     build:
       context: .
       dockerfile: Dockerfile
