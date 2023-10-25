@@ -24,13 +24,13 @@ services:
       - 'host.docker.internal:host-gateway'
     command: php artisan transaction:create
 
-#  transaction_confirm:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#      target: dev
-#    volumes:
-#      - .:/var/www/html
-#    extra_hosts:
-#      - 'host.docker.internal:host-gateway'
-#    command: php artisan transaction:confirmation
+  transaction_confirm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - .:/var/www/html
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    command: php artisan transaction:confirmation
