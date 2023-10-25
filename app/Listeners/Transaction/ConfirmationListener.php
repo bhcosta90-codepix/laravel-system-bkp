@@ -3,6 +3,7 @@
 namespace App\Listeners\Transaction;
 
 use App\Services\Interfaces\AMQPInterface;
+use CodePix\System\Domain\Events\Transaction\ConfirmationEvent;
 use CodePix\System\Domain\Events\Transaction\CreateEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -20,7 +21,7 @@ class ConfirmationListener
     /**
      * Handle the event.
      */
-    public function handle(CreateEvent $event): void
+    public function handle(ConfirmationEvent $event): void
     {
         $payload = $event->payload();
         $this->AMQP->publish($payload['bank'] . '.transaction.confirmation', $payload);
