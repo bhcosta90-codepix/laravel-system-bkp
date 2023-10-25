@@ -31,7 +31,7 @@ beforeEach(function () {
 
 describe("ConfirmationCommand Feature Test", function () {
     test("handle", function () {
-        $this->command->handle(new RabbitMQService("transaction:confirmation"), app(TransactionUseCase::class));
+        $this->command->handle(new RabbitMQService("transaction:confirmation"));
 
         assertDatabaseHas('transactions', [
             'debit_id' => '018b6346-04c2-73a5-b111-5a70480b0f1b',

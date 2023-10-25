@@ -22,7 +22,7 @@ beforeEach(function () {
 
 describe("CreateCommand Feature Test", function () {
     test("handle", function () {
-        $this->command->handle(new RabbitMQService("transaction:create"), app(TransactionUseCase::class));
+        $this->command->handle(new RabbitMQService("transaction:create"));
 
         assertDatabaseHas('transactions', [
             'bank' => 'ea9b5815-1b04-4d34-87e1-16da2787a3bb',

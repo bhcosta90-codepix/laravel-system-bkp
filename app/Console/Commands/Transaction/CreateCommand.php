@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\Transaction;
 
+use App\Jobs\Transaction\CreateJob;
 use App\Services\Interfaces\RabbitMQInterface;
 use CodePix\System\Application\UseCase\TransactionUseCase;
 use Illuminate\Console\Command;
@@ -25,19 +26,11 @@ class CreateCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(RabbitMQInterface $rabbitMQService, TransactionUseCase $transactionUseCase): void
+    public function handle(RabbitMQInterface $rabbitMQService): void
     {
-        $rabbitMQService->consume("transaction_creating", "transaction.creating", function($message) use($transactionUseCase) {
+        $rabbitMQService->consume("transaction_creating", "transaction.creating", function($message) {
             $data = json_decode($message, true);
-            return $transactionUseCase->register(
-                debit: $data['id'],
-                bank: $data['bank'],
-                account: $data['account_from']['id'],
-                value: $data['value'],
-                kind: $data['kind'],
-                key: $data['key'],
-                description: $data['description'],
-            );
+            dispatch(new CreateJob($data));
         });
     }
 }
