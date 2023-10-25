@@ -9,7 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class ConfirmationJob implements ShouldQueue
+class CompleteJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -26,6 +26,6 @@ class ConfirmationJob implements ShouldQueue
      */
     public function handle(TransactionUseCase $transactionUseCase): void
     {
-        $transactionUseCase->confirm($this->id);
+        $transactionUseCase->complete($this->id);
     }
 }

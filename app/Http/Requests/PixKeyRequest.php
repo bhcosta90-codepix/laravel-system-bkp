@@ -28,7 +28,7 @@ class PixKeyRequest extends FormRequest
             'kind' => ['required', new Enum(KindPixKey::class)],
         ];
 
-        match($this->get('kind')) {
+        match ($this->get('kind')) {
             'email' => $rules['key'] = ['email', 'required'],
             'phone' => $rules['key'] = ['required', 'size:11'],
             'document' => $rules['key'] = ['required', 'cpf_ou_cnpj'],

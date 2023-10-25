@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Console\Commands\Transaction\ConfirmationCommand;
+use App\Console\Commands\Transaction\CompleteCommand;
 use App\Models\PixKey;
 use App\Models\Transaction;
 use CodePix\System\Domain\Entities\Enum\Transaction\StatusTransaction;
@@ -11,7 +11,7 @@ use Tests\Stub\Services\RabbitMQService;
 use function Pest\Laravel\assertDatabaseHas;
 
 beforeEach(function () {
-    $this->command = new ConfirmationCommand();
+    $this->command = new CompleteCommand();
 
     $this->transaction = Transaction::factory()->create([
         'bank' => 'ea9b5815-1b04-4d34-87e1-16da2787a3bb',
@@ -28,13 +28,13 @@ beforeEach(function () {
     ]);
 });
 
-describe("ConfirmationCommand Feature Test", function () {
+describe("CompleteCommand Feature Test", function () {
     test("handle", function () {
-        $this->command->handle(new RabbitMQService("transaction:confirmation"));
+        $this->command->handle(new RabbitMQService("transaction:complete"));
 
         assertDatabaseHas('transactions', [
             'debit_id' => '018b6346-04c2-73a5-b111-5a70480b0f1b',
-            'status' => StatusTransaction::CONFIRMED,
+            'status' => StatusTransaction::COMPLETED,
         ]);
     });
 });

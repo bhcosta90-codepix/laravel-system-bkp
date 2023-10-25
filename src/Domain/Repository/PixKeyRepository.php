@@ -8,7 +8,6 @@ use CodePix\System\Domain\Entities\Account;
 use CodePix\System\Domain\Entities\Enum\PixKey\KindPixKey;
 use CodePix\System\Domain\Entities\PixKey;
 use CodePix\System\Domain\Repository\PixKeyRepositoryInterface;
-use Costa\Entity\ValueObject\Uuid;
 
 class PixKeyRepository implements PixKeyRepositoryInterface
 {

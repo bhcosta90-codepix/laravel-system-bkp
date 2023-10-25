@@ -27,5 +27,9 @@
     "transaction:confirmation": {
         "bank": "ea9b5815-1b04-4d34-87e1-16da2787a3bb",
         "id": "018b6346-04c2-73a5-b111-5a70480b0f1b"
+    },
+    "transaction:complete": {
+        "bank": "ea9b5815-1b04-4d34-87e1-16da2787a3bb",
+        "id": "018b6346-04c2-73a5-b111-5a70480b0f1b"
     }
 }

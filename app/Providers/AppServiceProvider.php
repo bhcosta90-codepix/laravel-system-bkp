@@ -5,9 +5,9 @@ namespace App\Providers;
 use App\Services\Interfaces\AMQPInterface;
 use App\Services\Interfaces\RabbitMQInterface;
 use App\Services\RabbitMQService;
-use System\Domain\Event\EventManager;
 use BRCas\CA\Contracts\Event\EventManagerInterface;
 use Illuminate\Support\ServiceProvider;
+use System\Domain\Event\EventManager;
 
 class AppServiceProvider extends ServiceProvider
 {

@@ -4,9 +4,6 @@ namespace App\Listeners\Transaction;
 
 use App\Services\Interfaces\AMQPInterface;
 use CodePix\System\Domain\Events\Transaction\ConfirmationEvent;
-use CodePix\System\Domain\Events\Transaction\CreateEvent;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class ConfirmationListener
 {

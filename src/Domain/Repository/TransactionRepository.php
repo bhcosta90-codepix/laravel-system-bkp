@@ -30,7 +30,7 @@ class TransactionRepository implements TransactionRepositoryInterface
 
     public function save(Transaction $transaction): bool
     {
-        if($rs = \App\Models\Transaction::find($transaction->id())){
+        if ($rs = \App\Models\Transaction::find($transaction->id())) {
             return $rs->update([
                 'status' => $transaction->status->value,
             ]);

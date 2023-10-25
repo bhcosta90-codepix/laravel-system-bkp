@@ -19,11 +19,11 @@ class TransactionFactory extends Factory
         return [
             'account_from_id' => str()->uuid(),
             'account_to_id' => str()->uuid(),
-            'value' => rand(100,999),
+            'value' => rand(100, 999),
             'kind' => 'id',
             'key' => str()->uuid(),
             'description' => $this->faker->sentence(5),
-            'status' => 'pending'
+            'status' => 'pending',
         ];
     }
 }

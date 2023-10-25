@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use App\Console\Commands\Transaction\CreateCommand;
 use App\Models\PixKey;
-use CodePix\System\Application\UseCase\TransactionUseCase;
 use Tests\Stub\Services\RabbitMQService;
 
 use function Pest\Laravel\assertDatabaseHas;
