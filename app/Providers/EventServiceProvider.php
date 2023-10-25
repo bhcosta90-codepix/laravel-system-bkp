@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Listeners\Transaction\ConfirmationListener;
 use App\Listeners\Transaction\CreateListener;
+use CodePix\System\Domain\Events\Transaction\ConfirmationEvent;
 use CodePix\System\Domain\Events\Transaction\CreateEvent;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -20,8 +22,11 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         CreateEvent::class => [
-            CreateListener::class
-        ]
+            CreateListener::class,
+        ],
+        ConfirmationEvent::class => [
+            ConfirmationListener::class,
+        ],
     ];
 
     /**
