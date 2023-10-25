@@ -20,7 +20,7 @@ class RabbitMQService implements AMQPInterface, RabbitMQInterface
 
     public function publish($name, array $value = []): void
     {
-        dump($value);
+        dd($value);
     }
 
     public function consume(string $queue, array|string $routing, $clojure, $custom = []): void
