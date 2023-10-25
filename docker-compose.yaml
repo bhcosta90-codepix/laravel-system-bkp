@@ -24,7 +24,7 @@ services:
       - 'host.docker.internal:host-gateway'
     command: php artisan transaction:create
 
-  transaction_confirm:
+  transaction_confirmation:
     build:
       context: .
       dockerfile: Dockerfile
