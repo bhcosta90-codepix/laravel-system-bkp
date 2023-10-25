@@ -2,19 +2,20 @@
 
 declare(strict_types=1);
 
-use App\Console\Commands\Transaction\CompleteCommand;
+use App\Jobs\Transaction\ConfirmationJob;
 use App\Models\PixKey;
 use App\Models\Transaction;
+use CodePix\System\Application\UseCase\TransactionUseCase;
 use CodePix\System\Domain\Entities\Enum\Transaction\StatusTransaction;
-use Tests\Stub\Services\RabbitMQService;
+use Illuminate\Support\Facades\Event;
+use Tests\Stub\Services\Data;
 
 use function Pest\Laravel\assertDatabaseHas;
 
 beforeEach(function () {
-    $this->command = new CompleteCommand();
+    Event::fake();
 
     $this->transaction = Transaction::factory()->create([
-        "id" => "018b6346-04c2-73a5-b111-5a70480b0f1b",
         'bank' => 'ea9b5815-1b04-4d34-87e1-16da2787a3bb',
         'debit_id' => '018b6346-04c2-73a5-b111-5a70480b0f1b',
         'kind' => 'id',
@@ -29,13 +30,14 @@ beforeEach(function () {
     ]);
 });
 
-describe("CompleteCommand Feature Test", function () {
-    test("handle", function () {
-        $this->command->handle(new RabbitMQService("transaction:complete"));
+describe("ConfirmationJob Unit Test", function(){
+    test("handle", function(){
+        $job = new ConfirmationJob(Data::get('transaction:confirmation')["id"]);
+        $job->handle(app(TransactionUseCase::class));
 
         assertDatabaseHas('transactions', [
             'debit_id' => '018b6346-04c2-73a5-b111-5a70480b0f1b',
-            'status' => StatusTransaction::COMPLETED,
+            'status' => StatusTransaction::CONFIRMED,
         ]);
-    })->skip();
+    });
 });

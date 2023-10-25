@@ -2,14 +2,17 @@
 
 declare(strict_types=1);
 
-use App\Console\Commands\Transaction\CreateCommand;
+use App\Jobs\Transaction\CreateJob;
 use App\Models\PixKey;
-use Tests\Stub\Services\RabbitMQService;
+use App\Services\RabbitMQService;
+use CodePix\System\Application\UseCase\TransactionUseCase;
+use Illuminate\Support\Facades\Event;
+use Tests\Stub\Services\Data;
 
 use function Pest\Laravel\assertDatabaseHas;
 
-beforeEach(function () {
-    $this->command = new CreateCommand();
+beforeEach(function(){
+    Event::fake();
 
     PixKey::factory()->create([
         'bank' => 'ea9b5815-1b04-4d34-87e1-16da2787a3bb',
@@ -19,9 +22,10 @@ beforeEach(function () {
     ]);
 });
 
-describe("CreateCommand Feature Test", function () {
-    test("handle", function () {
-        $this->command->handle(new RabbitMQService("transaction:create"));
+describe("CreateJob Unit Test", function(){
+    test("handle", function(){
+        $job = new CreateJob(Data::get('transaction:create'));
+        $job->handle(app(TransactionUseCase::class));
 
         assertDatabaseHas('transactions', [
             'bank' => 'ea9b5815-1b04-4d34-87e1-16da2787a3bb',
@@ -34,5 +38,5 @@ describe("CreateCommand Feature Test", function () {
             'status' => "pending",
             'cancel_description' => null,
         ]);
-    })->skip();
+    });
 });
