@@ -8,6 +8,7 @@ use CodePix\System\Domain\Entities\Account;
 use CodePix\System\Domain\Entities\Enum\PixKey\KindPixKey;
 use CodePix\System\Domain\Entities\PixKey;
 use CodePix\System\Domain\Repository\PixKeyRepositoryInterface;
+use Costa\Entity\ValueObject\Uuid;
 
 class PixKeyRepository implements PixKeyRepositoryInterface
 {
@@ -27,9 +28,9 @@ class PixKeyRepository implements PixKeyRepositoryInterface
         if ($pix = \App\Models\PixKey::where('key', $key)->where('kind', $kind)->first()) {
             return PixKey::make(
                 [
-                    'bank' => $pix->bank,
+                    'bank' => new Uuid($pix->bank),
                     'kind' => KindPixKey::from($pix->kind),
-                    'account' => $pix->account_id,
+                    'account' => new Uuid($pix->account_id),
                 ] + $pix->toArray()
             );
         }

@@ -52,10 +52,12 @@ class TransactionRepository implements TransactionRepositoryInterface
             )->where('kind', $transaction->kind)->first())) {
             $dataPix = [
                 'account' => new Uuid($pix->account_id),
+                'bank' => new Uuid($pix->bank),
                 'kind' => KindPixKey::from($pix->kind),
             ];
 
             $data = [
+                'bank' => new Uuid($pix->bank),
                 'debit' => new Uuid($transaction->debit_id),
                 'accountFrom' => new Uuid($transaction->account_from_id),
                 'pixKeyTo' => \CodePix\System\Domain\Entities\PixKey::make($dataPix + $pix->toArray()),
