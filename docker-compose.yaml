@@ -9,6 +9,39 @@ services:
     volumes:
       - .:/var/www/html
     ports:
-      - "8100:8000"
+      - "7000:8000"
     extra_hosts:
       - 'host.docker.internal:host-gateway'
+
+  transaction_create:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - .:/var/www/html
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    command: php artisan transaction:create
+
+  transaction_confirmation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - .:/var/www/html
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    command: php artisan transaction:confirmation
+
+  transaction_complete:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - .:/var/www/html
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    command: php artisan transaction:complete

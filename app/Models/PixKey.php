@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class PixKey extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $guarded = [
-        'pix_keys',
+    protected $guarded = [];
+
+    protected $casts = [
+        'status' => 'boolean',
     ];
 }

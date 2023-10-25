@@ -2,10 +2,15 @@
 
 namespace App\Providers;
 
+use App\Listeners\Transaction\ConfirmationListener;
+use App\Listeners\Transaction\CreateListener;
+use App\Listeners\Transaction\ErrorListener;
+use CodePix\System\Domain\Events\Transaction\ConfirmationEvent;
+use CodePix\System\Domain\Events\Transaction\CreateEvent;
+use CodePix\System\Domain\Events\Transaction\ErrorEvent;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -17,6 +22,15 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+        CreateEvent::class => [
+            CreateListener::class,
+        ],
+        ConfirmationEvent::class => [
+            ConfirmationListener::class,
+        ],
+        ErrorEvent::class => [
+            ErrorListener::class,
         ],
     ];
 

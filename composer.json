@@ -10,15 +10,19 @@
     "require": {
         "php": "^8.1",
         "bhcosta90-codepix/package-system": "dev-master",
+        "bschmitt/laravel-amqp": "^2.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "laravellegends/pt-br-validator": "^10.0"
     },
     "require-dev": {
+        "captainhook/captainhook": "^5.18",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
+        "laravel/telescope": "^4.16",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "pestphp/pest": "^2.24",
@@ -42,7 +46,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "php -r \"if (file_exists('./vendor/bin/captainhook')) { passthru('vendor/bin/captainhook install -f -s'); }\""
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"

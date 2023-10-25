@@ -1,0 +1,35 @@
+{
+    "transaction:create": {
+        "bank": "ea9b5815-1b04-4d34-87e1-16da2787a3bb",
+        "account_from": {
+            "balance": 0,
+            "pix_keys": [],
+            "name": "bruno costa",
+            "bank": "ea9b5815-1b04-4d34-87e1-16da2787a3bb",
+            "agency": "232f7267-d3b3-4031-8d16-d6b7428083f6",
+            "number": "3340487",
+            "password": "$2y$10$R6na\/TeXO3QU42PgPdmYUeuExMPaQLcwsR0XeHRhirGlC4iaLTJ7i",
+            "id": "018b6333-2612-713c-8b6d-6e7574f2c727",
+            "created_at": "2023-10-24 19:39:45",
+            "updated_at": "2023-10-24 19:39:45"
+        },
+        "value": 10,
+        "kind": "id",
+        "key": "ea5d1de6-66ff-4110-a21e-4d8e15c4859d",
+        "description": "testing",
+        "status": "pending",
+        "debit": null,
+        "cancel_description": null,
+        "id": "018b6333-434c-702b-b514-02de403e1fde",
+        "created_at": "2023-10-24 19:39:45",
+        "updated_at": "2023-10-24 19:39:45"
+    },
+    "transaction:confirmation": {
+        "bank": "ea9b5815-1b04-4d34-87e1-16da2787a3bb",
+        "id": "018b6346-04c2-73a5-b111-5a70480b0f1b"
+    },
+    "transaction:complete": {
+        "bank": "ea9b5815-1b04-4d34-87e1-16da2787a3bb",
+        "id": "018b6346-04c2-73a5-b111-5a70480b0f1b"
+    }
+}
