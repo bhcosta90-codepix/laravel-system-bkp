@@ -41,7 +41,28 @@ class TransactionRepository implements TransactionRepositoryInterface
 
     public function find(string $id): ?Transaction
     {
-        dd(__FUNCTION__);
+        if (($transaction = \App\Models\Transaction::where('id', $id)->first()) && ($pix = PixKey::where(
+                'key',
+                $transaction->key
+            )->where('kind', $transaction->kind)->first())) {
+            $dataPix = [
+                'account' => new Uuid($pix->account_id),
+                'kind' => KindPixKey::from($pix->kind),
+                'bank' => new Uuid($pix->bank),
+            ];
+
+            $data = [
+                'bank' => new Uuid($pix->bank),
+                'debit' => new Uuid($transaction->debit_id),
+                'accountFrom' => new Uuid($transaction->account_from_id),
+                'pixKeyTo' => \CodePix\System\Domain\Entities\PixKey::make($dataPix + $pix->toArray()),
+                'status' => StatusTransaction::from($transaction->status),
+            ];
+
+            return Transaction::make($data + $transaction->toArray());
+        }
+
+        return $transaction;
     }
 
     public function findByDebit(string $id): ?Transaction

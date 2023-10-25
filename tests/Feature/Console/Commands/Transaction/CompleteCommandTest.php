@@ -14,6 +14,7 @@ beforeEach(function () {
     $this->command = new CompleteCommand();
 
     $this->transaction = Transaction::factory()->create([
+        "id" => "018b6346-04c2-73a5-b111-5a70480b0f1b",
         'bank' => 'ea9b5815-1b04-4d34-87e1-16da2787a3bb',
         'debit_id' => '018b6346-04c2-73a5-b111-5a70480b0f1b',
         'kind' => 'id',
