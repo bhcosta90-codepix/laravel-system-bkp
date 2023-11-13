@@ -78,7 +78,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/bhcosta90-codepix/package-system"
+            "url": "https://github.com/bhcosta90-codepix/php-package-system"
         },
         {
             "type": "vcs",
