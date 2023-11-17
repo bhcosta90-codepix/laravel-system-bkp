@@ -45,3 +45,17 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     command: php artisan transaction:complete
+
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "15673:15672"
+      - "5673:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "root"
+      RABBITMQ_DEFAULT_PASS: "root"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    volumes:
+      - ./.data/rabbitmq:/var/lib/rabbitmq
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
